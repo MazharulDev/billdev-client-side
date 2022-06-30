@@ -1,14 +1,18 @@
 import React from 'react';
 
-const BillText = () => {
+const BillText = ({ info }) => {
+    const { _id, name, email, phone, amount } = info;
     return (
         <tr>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Littel, Schaden and Vandervort</td>
-            <td>Canada</td>
-            <td>12/16/2020</td>
-            <td>Blue</td>
+            <td>{_id}</td>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td>{phone}</td>
+            <td>{amount}</td>
+            <td>
+                <button className='btn btn-xs mr-2 btn-success'>Edit</button>
+                <button className='btn btn-xs btn-error'>Delete</button>
+            </td>
         </tr>
     );
 };

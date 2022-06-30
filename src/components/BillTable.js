@@ -1,8 +1,20 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import BillText from './BillText';
 
 
 const BillTable = () => {
+    const { data: information, isLoading, refetch } = useQuery('information', () => fetch('http://localhost:5000/info', {
+        method: 'GET',
+        // headers: {
+        //     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        // }
+    })
+        .then(res => res.json()))
+    refetch()
+    if (isLoading) {
+        return <div className='flex justify-center mt-5'><button class="btn btn-square loading"></button></div>
+    }
     return (
         <div className='container mx-auto mt-5'>
             <div className="overflow-x-auto">
@@ -19,7 +31,10 @@ const BillTable = () => {
                     </thead>
 
                     <tbody>
-                        <BillText />
+                        {
+                            information.map(info => <BillText key={info._id} info={info} />)
+                        }
+                        {/* <BillText info={info} /> */}
                     </tbody>
 
 
