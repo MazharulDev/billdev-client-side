@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import DeleteModal from '../Shared/DeleteModal';
+import EditModal from '../Shared/EditModal';
 
 const BillText = ({ info }) => {
     const [del, setDel] = useState(null)
+    const [edit, setEdit] = useState(null)
     const { _id, name, email, phone, amount } = info;
     return (
         <tr>
@@ -12,11 +14,14 @@ const BillText = ({ info }) => {
             <td>{phone}</td>
             <td>{amount}</td>
             <td>
-                <button className='btn btn-xs mr-2 btn-success'>Edit</button>
+                <label onClick={() => setEdit(info)} for='Edit-modal' className='btn btn-xs mr-2 btn-success'>Edit</label>
                 <label onClick={() => setDel(info)} for="delete-modal" className='btn btn-xs btn-error'>Delete</label>
             </td>
             {
                 del && <DeleteModal del={del} setDel={setDel} />
+            }
+            {
+                edit && <EditModal edit={edit} setEdit={setEdit} />
             }
         </tr>
     );
