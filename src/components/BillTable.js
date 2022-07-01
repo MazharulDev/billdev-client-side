@@ -34,7 +34,6 @@ const BillTable = () => {
                         {
                             information.map(info => <BillText key={info._id} info={info} />)
                         }
-                        {/* <BillText info={info} /> */}
                     </tbody>
 
 

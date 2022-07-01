@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DeleteModal from '../Shared/DeleteModal';
 
 const BillText = ({ info }) => {
+    const [del, setDel] = useState(null)
     const { _id, name, email, phone, amount } = info;
     return (
         <tr>
@@ -11,8 +13,11 @@ const BillText = ({ info }) => {
             <td>{amount}</td>
             <td>
                 <button className='btn btn-xs mr-2 btn-success'>Edit</button>
-                <button className='btn btn-xs btn-error'>Delete</button>
+                <label onClick={() => setDel(info)} for="delete-modal" className='btn btn-xs btn-error'>Delete</label>
             </td>
+            {
+                del && <DeleteModal del={del} setDel={setDel} />
+            }
         </tr>
     );
 };
