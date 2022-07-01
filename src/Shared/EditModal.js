@@ -13,7 +13,7 @@ const EditModal = ({ edit, setEdit }) => {
             phone: phone,
             amount: amount
         }
-        fetch(`http://localhost:5000/info/${edit._id}`, {
+        fetch(`https://multicultural-poutine-84938.herokuapp.com/info/${edit._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -31,7 +31,7 @@ const EditModal = ({ edit, setEdit }) => {
             <input type="checkbox" id="Edit-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label for="Edit-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="Edit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handleSubmit}>
                         <p>Edited {edit.name} info</p>
                         <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="name" placeholder='name' /> <br />

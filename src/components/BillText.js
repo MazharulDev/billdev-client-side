@@ -14,8 +14,8 @@ const BillText = ({ info }) => {
             <td>{phone}</td>
             <td>{amount}</td>
             <td>
-                <label onClick={() => setEdit(info)} for='Edit-modal' className='btn btn-xs mr-2 btn-success'>Edit</label>
-                <label onClick={() => setDel(info)} for="delete-modal" className='btn btn-xs btn-error'>Delete</label>
+                <label onClick={() => setEdit(info)} htmlFor='Edit-modal' className='btn btn-xs mr-2 btn-success'>Edit</label>
+                <label onClick={() => setDel(info)} htmlFor="delete-modal" className='btn btn-xs btn-error'>Delete</label>
             </td>
             {
                 del && <DeleteModal del={del} setDel={setDel} />

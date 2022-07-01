@@ -31,7 +31,7 @@ const AddNewModal = ({ setAddInfo }) => {
             phone: phone,
             amount: amount
         }
-        fetch('http://localhost:5000/info', {
+        fetch('https://multicultural-poutine-84938.herokuapp.com/info', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const AddNewModal = ({ setAddInfo }) => {
             <input type="checkbox" id="Add-new" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label for="Add-new" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="Add-new" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div>
                         <h2 className='text-center font-bold'>Type your information</h2>
                         <form onSubmit={handleSubmit}>
